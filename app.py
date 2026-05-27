@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, session, redirect, url_for, R
 from flask import request as flask_request
 from datetime import datetime
 import os
+from whitenoise import WhiteNoise
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'fallback-dev-key')
@@ -374,4 +375,5 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 if __name__ == '__main__': 
+    app.wsgi_app = WhiteNoise(app.wsgi_app, root='static/', prefix='static')
     app.run(debug=True, port=5000)

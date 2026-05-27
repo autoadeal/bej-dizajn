@@ -6,14 +6,6 @@ import os
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'fallback-dev-key')
 
-@app.context_processor
-def inject_translations():
-    return dict(
-        t=translations[session['lang']],
-        current_lang=session['lang'],
-        request=flask_request  # expose request to templates
-    )
-
 @app.route('/sitemap.xml')
 def sitemap():
     pages = ['', '/services', '/packages', '/about', '/contact', '/estimate']

@@ -1,0 +1,128 @@
+<!-- templates/estimate.html -->
+{% extends "base.html" %}
+{% block title %}Project Cost Estimator | Bej Dizajn{% endblock %}
+{% block meta_description %}Use our free project calculator to estimate the cost of your website, branding, or digital project. Instant results, no commitment required.{% endblock %}
+{% block content %}
+<!-- Custom Header for the Estimate Page -->
+<div class="estimate-header">
+    <div class="header-content">
+        <h1 class="page-indicator page-title-bobega">{{ t.est_page_header }}</h1>
+    </div>
+    <div class="header-line"></div>
+</div>
+
+<div class="estimate-page-container reveal">
+    <!-- Left Card: Project Calculator (Inputs) -->
+    <div class="calculator-card">
+       <h2 class="bodega-title">{{ t.calc_title }}</h2>
+        <p class="subtitle">{{ t.est_sub }}</p>
+
+        <form id="estimator-form">
+            <!-- Step 1: Project Type -->
+            <div class="estimator-section">
+                <label class="section-label">{{ t.label_project_type }}</label>
+                <div class="project-type-grid">
+                    <input type="radio" id="type-website" name="project_category" value="website" checked>
+                    <label for="type-website" class="type-tile">
+                        <i class="fas fa-laptop-code service-icon"></i>
+                        <span class="type-title">{{ t.type_website_title }}</span>
+                        <span class="type-desc">{{ t.type_website_desc }}</span>
+                    </label>
+
+                    <input type="radio" id="type-digital" name="project_category" value="digital">
+                    <label for="type-digital" class="type-tile">
+                        <i class="fas fa-window-maximize service-icon"></i>
+                        <span class="type-title">{{ t.type_digital_title }}</span>
+                        <span class="type-desc">{{ t.type_digital_desc }}</span>
+                    </label>
+
+                    <input type="radio" id="type-design" name="project_category" value="design">
+                    <label for="type-design" class="type-tile">
+                        <i class="fas fa-pen-nib service-icon"></i>
+                        <span class="type-title">{{ t.type_design_title }}</span>
+                        <span class="type-desc">{{ t.type_design_desc }}</span>
+                    </label>
+
+                    <input type="radio" id="type-growth" name="project_category" value="growth">
+                    <label for="type-growth" class="type-tile">
+                        <i class="fas fa-chart-line service-icon"></i>
+                        <span class="type-title">{{ t.type_growth_title }}</span>
+                        <span class="type-desc">{{ t.type_growth_desc }}</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Step 2: Specific Project (rendered dynamically) -->
+            <div class="estimator-section" id="specific-project-section">
+                <label class="section-label">{{ t.label_specific_project }}</label>
+                <div id="specific-project-grid" class="specific-project-grid"></div>
+            </div>
+
+            <!-- Step 3: Pages Slider (website only) -->
+            <div class="estimator-section" id="pages-section">
+                <div class="label-row">
+                    <label class="section-label">{{ t.label_estimated_pages }}</label>
+                    <span class="pages-display"><span id="page-count-display">1</span> {{ t.label_pages_unit }}</span>
+                </div>
+                <input type="range" id="page-count" name="pages" min="1" max="20" value="1" class="page-slider">
+            </div>
+
+            <!-- Step 4: Add-ons (rendered dynamically) -->
+            <div class="estimator-section" id="addons-section">
+                <label class="section-label">{{ t.label_addons_features }}</label>
+                <div id="addon-list-grid" class="addon-list-grid"></div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Right Card: Project Estimate (Results) -->
+    <div class="estimate-result-card">
+        <div class="result-header">
+            <h3 class="bodega-title">{{ t.estimate_result_title }}</h3>
+            <!-- Simple Currency Toggle -->
+            <div class="currency-switch">
+                <span class="currency-label active">{{ t.est_currency_eur }}</span>
+                <label class="switch-small">
+                    <input type="checkbox" id="currency-toggle">
+                    <span class="slider-small round"></span>
+                </label>
+                <span class="currency-label">{{ t.est_currency_all }}</span>
+            </div>
+        </div>
+
+        <div class="selected-summary">
+            <span id="selected-project-name" class="service-name">Webflow</span>
+        </div>
+
+        <!-- Big Total Price Display !!!!!!!!  -->
+        <div class="total-price-display">
+            <span class="currency-symbol">€</span><span id="total-price">1,000</span>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Breakdown List -->
+        <div class="breakdown-list">
+            <div class="breakdown-item">
+                <span>{{ t.est_base_cost }}</span>
+                <span class="breakdown-value"><span class="cur-break">€</span><span id="base-cost-display">0</span></span>
+            </div>
+            <div class="breakdown-item">
+                <span>{{ t.est_pages_cost }}</span>
+                <span class="breakdown-value"><span class="cur-break">€</span><span id="pages-cost-display">0</span></span>
+            </div>
+            <div class="breakdown-item">
+                <span>{{ t.est_addons_cost }}</span>
+                <span class="breakdown-value"><span class="cur-break">€</span><span id="addons-cost-display">0</span></span>
+            </div>
+        </div>
+
+        <!-- Call to Action Button -->
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="{{ url_for('contact') }}" class="btn-primary">{{ t.est_get_quote }}</a>
+        </div>
+    </div>
+</div>
+    
+
+{% endblock %}

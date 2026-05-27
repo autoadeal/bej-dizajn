@@ -1,0 +1,216 @@
+{% extends "base.html" %}
+{% block title %}Bej Dizajn | Web Design & Brand Identity Agency — Albania{% endblock %}
+{% block meta_description %}Bej Dizajn builds bespoke websites, e-commerce stores, and brand identities for modern businesses. Based in Albania, serving clients worldwide.{% endblock %}
+{% block content %}
+<section class="hero reveal">
+    <canvas id="liquid-canvas"></canvas>
+    <div class="hero-content">
+        <h1 id="heroTitle" class="hero-title-custom">
+            {{ t.hero_title_main }} <span class="brand-highlight">{{ t.hero_brand }}</span>
+        </h1>
+        <p id="heroSub" class="hero-subtitle">
+            {{ t.hero_subtitle }}
+        </p>
+        
+        <div id="heroBtns" class="hero-btn-container">
+            <a href="{{ url_for('estimate') }}" class="btn-primary">{{ t.btn_estimate_cost }}</a>
+            <a href="https://wa.me/355686603606" class="btn-secondary-light" target="_blank">{{ t.btn_chat_us }}</a>
+        </div>
+    </div>
+</section>
+
+<section class="packages-section reveal">
+    <div class="home-packages-wrapper">
+        <div class="packages-outer-container">
+            <div class="pkg-card">
+                <div class="pkg-header">
+                    <h3>{{ t.pkg_quick_launch }}</h3>
+                    <p class="pkg-subtitle">{{ t.pkg_quick_sub }}</p>
+                    <div class="pkg-price">€130</div>
+                    <a href="https://wa.me/355686603606" class="pkg-btn-outline" target="_blank">{{ t.btn_get_started }}</a>
+                </div>
+                <ul class="pkg-features">
+                    <li>{{ t.feat_single_page }}</li>
+                    <li>{{ t.feat_basic_seo }}</li>
+                    <li>{{ t.feat_mobile_responsive }}</li>
+                </ul>
+            </div>
+
+            <div class="pkg-card">
+                <div class="pkg-header">
+                    <h3>{{ t.pkg_digital_growth }}</h3>
+                    <p class="pkg-subtitle">{{ t.pkg_digital_sub }}</p>
+                    <div class="pkg-price">€260</div>
+                    <a href="https://wa.me/355686603606" class="pkg-btn-outline" target="_blank">{{ t.btn_get_started }}</a>
+                </div>
+                <ul class="pkg-features">
+                    <li>{{ t.feat_multi_page }}</li>
+                    <li>{{ t.feat_advanced_seo }}</li>
+                    <li>{{ t.feat_logo_palette }}</li>
+                </ul>
+            </div>
+
+            <div class="pkg-card">
+                <div class="pkg-header">
+                    <h3>{{ t.pkg_custom_project }}</h3>
+                    <p class="pkg-subtitle">{{ t.custom_subtitle }}</p>
+                    <div class="price-tag">{{ t.price_tailored }}</div>
+                </div>
+                <a href="{{ url_for('estimate') }}" class="pkg-btn-outline">{{ t.btn_build_custom }}</a>
+                <p>{{ t.custom_desc }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="services-section reveal">
+    <div class="services-intro">
+        <h2 class="reveal-up bodega-title">{{ t.services_title }}</h2>
+        <p class="reveal-up text-muted-custom">{{ t.services_sub }}</p>
+    </div>
+    <div class="grid-container">
+        <div class="card reveal-up">
+            <h3>{{ t.srv_web_dev_title }}</h3>
+            <p>{{ t.srv_web_dev_desc }}</p>
+        </div>
+        <div class="card reveal-up">
+            <h3>{{ t.srv_ui_ux_title }}</h3>
+            <p>{{ t.srv_ui_ux_desc }}</p>
+        </div>
+        <div class="card reveal-up">
+            <h3>{{ t.srv_ecom_title }}</h3>
+            <p>{{ t.srv_ecom_desc }}</p>
+        </div>
+        <div class="card reveal-up">
+            <h3>{{ t.srv_brand_title }}</h3>
+            <p>{{ t.srv_brand_desc }}</p>
+        </div>
+    </div>
+</section>
+
+<section class="work-slider-section reveal">
+    <div class="work-intro">
+        <h2 class="reveal-up bodega-title">{{ t.work_title }}</h2>
+        <p class="reveal-up text-muted-custom">{{ t.work_sub }}</p>
+    </div>
+
+   <div class="work-slider-wrapper">
+        <div class="slider-track" id="workTrack">
+            
+            <div class="project-item">
+                <div class="work-category-pill">
+                    <span class="pill-text">{{ t.work_cat_ecom }}</span>
+                </div>
+                <a href="https://autoadeal.com/" class="work-card" target="_blank">
+                    <video class="work-video" autoplay muted loop playsinline preload="none">
+                        <source src="/static/videos/autoadeal.mp4" type="video/mp4">
+                    </video>
+                    <div class="work-card-overlay"></div>
+                </a>
+            </div>
+
+             <div class="project-item">
+            <div class="work-category-pill"><span class="pill-text">{{ t.work_cat_branding }}</span></div>
+                <a href="#" class="work-card" target="_blank">
+                <img src="/static/images/branding.png" alt="Logos" class="work-image">  
+            </a>
+        </div>
+
+            <div class="project-item">
+                <div class="work-category-pill">
+                    <span class="pill-text">{{ t.work_cat_auto }}</span>
+                </div>
+                <a href="https://kerkoauto.al/" class="work-card" target="_blank">
+                    <video class="work-video" autoplay muted loop playsinline preload="none">
+                        <source src="/static/videos/kerkoauto.mp4" type="video/mp4">
+                    </video>
+                    <div class="work-card-overlay"></div>
+                </a>
+            </div>
+
+           <div class="project-item">
+                <div class="work-category-pill"><span class="pill-text">{{ t.work_cat_logo }}</span></div>
+                <a href="#" class="work-card" target="_blank">
+                    <img src="/static/images/logos.png" alt="Logos" class="work-image">
+                </a>
+            </div>
+
+            <!-- Duplicates for slider looping -->
+            <div class="project-item">
+                <div class="work-category-pill"><span class="pill-text">{{ t.work_cat_ecom }}</span></div>
+                <a href="https://autoadeal.com/" class="work-card" target="_blank">
+                    <video class="work-video" autoplay muted loop playsinline preload="none">
+                        <source src="/static/videos/autoadeal.mp4" type="video/mp4"></video>
+                </a>
+            </div>
+
+            <div class="project-item">
+            <div class="work-category-pill"><span class="pill-text">{{ t.work_cat_branding }}</span></div>
+                <a href="#" class="work-card" target="_blank">
+                <img src="/static/images/branding.png" alt="Logos" class="work-image">  
+            </a>
+        </div>
+
+            <div class="project-item">
+                <div class="work-category-pill"><span class="pill-text">{{ t.work_cat_auto }}</span></div>
+                <a href="https://kerkoauto.al/" class="work-card" target="_blank">
+                    <video class="work-video" autoplay muted loop playsinline preload="none">
+                        <source src="/static/videos/kerkoauto.mp4" type="video/mp4"></video>
+                </a>
+            </div>
+
+            <div class="project-item">
+                <div class="work-category-pill"><span class="pill-text">{{ t.work_cat_logo }}</span></div>
+                <a href="#" class="work-card" target="_blank">
+                    <img src="/static/images/logos.png" alt="Logos" class="work-image">
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="testimonials-section reveal">
+    <div class="testim-intro">
+        <h2 class="reveal-up bodega-title">{{ t.testim_title }}</h2>
+        <p class="reveal-up text-muted-custom">{{ t.testim_subtitle }}</p>
+    </div>
+
+    <div class="testim-wrapper">
+        <div class="vertical-scroll-line">
+            <div class="scroll-line-fill" id="testimFill"></div>
+        </div>
+        
+        <div class="testim-grid">
+            <div class="testim-card">
+                <i class="fas fa-quote-left testim-quote"></i>
+                <p>"{{ t.testim_1_text }}"</p>
+                <span class="testim-client">— AutoAdeal</span>
+            </div>
+            <div class="testim-card">
+                <i class="fas fa-quote-left testim-quote"></i>
+                <p>"{{ t.testim_2_text }}"</p>
+                <span class="testim-client">— Kerko Auto</span>
+            </div>
+            <div class="testim-card">
+                <i class="fas fa-quote-left testim-quote"></i>
+                <p>"{{ t.testim_3_text }}"</p>
+                <span class="testim-client">— Luxury Villa</span>
+            </div>
+            <div class="testim-card">
+                <i class="fas fa-quote-left testim-quote"></i>
+                <p>"{{ t.testim_4_text }}"</p>
+                <span class="testim-client">— Lura Boutique</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section reveal">
+    <h2 class="reveal-up bodega-title">{{ t.cta_title }}</h2>
+    <p class="reveal-up text-muted-custom">{{ t.cta_sub }}</p>
+    <a href="{{ url_for('estimate') }}" class="btn-primary reveal-up large-btn">{{ t.btn_calc_cost }}</a>
+</section>
+
+
+{% endblock %}

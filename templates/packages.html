@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block title %}Pricing Packages — Web & Branding Plans | Bej Dizajn{% endblock %}
+{% block meta_description %}Choose a web design or branding package starting from €130. Quick Launch, Digital Growth, Creative Kit, Business Growth, and custom plans available.{% endblock %}
+{% block content %}
+
+<div class="packages-header">
+    <div class="header-content">
+        <h1 class="page-indicator page-title-bobega">{{ t.packages_header }}</h1>
+    </div>
+    <div class="header-line"></div>
+</div>
+    
+<div class="packages-container">
+    <p>{{ t.packages_subtitle }}</p>
+    
+    <div class="packages-grid">
+        <!-- Quick Launch -->
+        <div class="card reveal-up">
+            <div class="card-top">
+                <h3>{{ t.pkg_quick_launch }}</h3>
+                <div class="price-tag">€130</div>
+                <ul class="card-feature-list">
+                    <li>{{ t.feat_single_page }}</li>
+                    <li>{{ t.feat_basic_seo }}</li>
+                    <li>{{ t.feat_mobile_responsive }}</li>
+                </ul>
+            </div>
+            <a href="{{ url_for('contact') }}" class="btn-outline">{{ t.btn_select_plan }}</a>
+        </div>
+
+        <!-- Digital Growth -->
+        <div class="card reveal-up">
+            <div class="card-top">
+                <h3>{{ t.pkg_digital_growth }}</h3>
+                <div class="price-tag">€250</div>
+                <ul class="card-feature-list">
+                    <li>{{ t.feat_multi_page }}</li>
+                    <li>{{ t.feat_advanced_seo }}</li>
+                    <li>{{ t.feat_logo_palette }}</li>
+                </ul>
+            </div>
+            <a href="{{ url_for('contact') }}" class="btn-outline">{{ t.btn_select_plan }}</a>
+        </div>
+
+        <!-- Creative Kit -->
+        <div class="card reveal-up">
+            <div class="card-top">
+                <h3>{{ t.pkg_creative_kit }}</h3>
+                <div class="price-tag">€190</div>
+                <ul class="card-feature-list">
+                    <li>{{ t.feat_full_identity }}</li>
+                    <li>{{ t.feat_social_kit }}</li>
+                    <li>{{ t.feat_business_cards }}</li>
+                </ul>
+            </div>
+            <a href="{{ url_for('contact') }}" class="btn-outline">{{ t.btn_select_plan }}</a>
+        </div>
+
+        <!-- Business Growth -->
+        <div class="card reveal-up">
+            <div class="card-top">
+                <h3>{{ t.pkg_business_growth }}</h3>
+                <div class="price-tag">€490</div>
+                <ul class="card-feature-list">
+                    <li>{{ t.feat_custom_site }}</li>
+                    <li>{{ t.feat_full_identity }}</li>
+                    <li>{{ t.feat_inventory_mgmt }}</li>
+               </ul>
+            </div>
+            <a href="{{ url_for('contact') }}" class="btn-outline">{{ t.btn_select_plan }}</a>
+        </div>
+
+        <!-- Signature Experience -->
+        <div class="card reveal-up">
+            <div class="card-top">
+                <h3>{{ t.pkg_signature_exp }}</h3>
+                <div class="price-tag">€700</div>
+                <ul class="card-feature-list">
+                    <li>{{ t.feat_ecommerce }}</li>
+                    <li>{{ t.feat_full_identity }}</li>
+                    <li>{{ t.feat_admin_panel }}</li>
+                </ul>
+            </div>
+            <a href="{{ url_for('contact') }}" class="btn-outline">{{ t.btn_select_plan }}</a>
+        </div>
+        
+        <!-- Custom Project -->
+        <div class="card reveal-up custom-card">
+            <div class="card-top">
+                <h3>{{ t.pkg_custom_project }}</h3>
+                <p>{{ t.custom_subtitle }}</p>
+                <div class="price-tag">{{ t.price_tailored }}</div>
+                <p style="margin-bottom: 2rem;">{{ t.custom_desc }}</p>
+            </div>
+            <a href="{{ url_for('estimate') }}" class="btn-primary">{{ t.btn_build_custom }}</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

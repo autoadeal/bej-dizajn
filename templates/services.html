@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}Services — Web Design, Branding & SEO | Bej Dizajn{% endblock %}
+{% block meta_description %}Explore our services: custom web development, logo design, brand identity, UI/UX, digital menus, SEO, and more. Bej Dizajn, Albania.{% endblock %}
+{% block content %}
+
+<div class="services-header">
+    <div class="header-content">
+        <h1 class="page-indicator page-title-bobega">{{ t.services_header }}</h1>
+    </div>
+    <div class="header-line"></div>
+</div>
+
+<div class="services-container">
+    <p>{{ t.services_subtitle }}</p>
+
+    <div class="services-grid">
+        <div class="card reveal">
+            <i class="fa-solid fa-code service-icon"></i>
+            <h3>{{ t.web_title }}</h3>
+            <ul class="service-list">
+                <li>{{ t.web_design }}</li>
+                <li>{{ t.web_dev }}</li>
+                <li>{{ t.web_maintenance }}</li>
+            </ul>
+        </div>
+
+        <div class="card reveal">
+            <i class="fa-solid fa-pen-nib service-icon"></i>
+            <h3>{{ t.branding_title }}</h3>
+            <ul class="service-list">
+                <li>{{ t.logo_design }}</li>
+                <li>{{ t.brand_identity }}</li>
+                <li>{{ t.business_cards }}</li>
+            </ul>
+        </div>
+
+        <div class="card reveal">
+            <i class="fa-solid fa-palette service-icon"></i>
+            <h3>{{ t.design_title }}</h3>
+            <ul class="service-list">
+                <li>{{ t.graphic_design }}</li>
+                <li>{{ t.poster_design }}</li>
+                <li>{{ t.product_design }}</li>
+            </ul>
+        </div>
+
+        <div class="card reveal">
+            <i class="fa-solid fa-bullhorn service-icon"></i>
+            <h3>{{ t.digital_title }}</h3>
+            <ul class="service-list">
+                <li>{{ t.digital_menus }}</li>
+                <li>{{ t.brochures }}</li>
+                <li>{{ t.social_media }}</li>
+            </ul>
+        </div>
+
+        <div class="card reveal">
+            <i class="fa-solid fa-compass service-icon"></i>
+            <h3>{{ t.strategy_title }}</h3>
+            <ul class="service-list">
+                <li>{{ t.landing_pages }}</li>
+                <li>{{ t.ui_ux }}</li>
+                <li>{{ t.style_guides }}</li>
+            </ul>
+        </div>
+
+        <div class="card reveal">
+            <i class="fa-solid fa-gears service-icon"></i>
+            <h3>{{ t.setup_title }}</h3>
+            <ul class="service-list">
+                <li>{{ t.seo }}</li>
+                <li>{{ t.domain_setup }}</li>
+                <li>{{ t.admin_panels }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

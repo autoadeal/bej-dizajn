@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="{{ current_lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Per-page overrides via blocks (with sitewide fallbacks) -->
+    <title>{% block title %}Bej Dizajn | Web Design & Brand Identity Agency — Albania{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}Bej Dizajn is a luxury web design and brand identity agency based in Albania. We build bespoke websites, e-commerce stores, logos, and digital strategies.{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}web design Albania, brand identity, logo design, e-commerce, SEO, Tirana web agency{% endblock %}">
+    <meta name="robots" content="index, follow">
+    <meta name="robots" content="{% block robots %}index, follow{% endblock %}">
+    <link rel="canonical" href="{% block canonical %}https://bejdizajn.al{{ request.path }}{% endblock %}">
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp previews) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bej Dizajn">
+    <meta property="og:title" content="{% block og_title %}Bej Dizajn | Luxury Web & Brand Agency{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Bespoke web design, brand identities, and digital strategies for modern businesses in Albania and beyond.{% endblock %}">
+    <meta property="og:image" content="{% block og_image %}{{ url_for('static', filename='images/og-cover.jpg', _external=True) }}{% endblock %}">
+    <meta property="og:url" content="https://bejdizajn.al{{ request.path }}">
+    <meta property="og:locale" content="{{ 'sq_AL' if current_lang == 'sq' else 'en_US' }}">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% block twitter_title %}Bej Dizajn | Luxury Web & Brand Agency{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}Bespoke web design, brand identities, and digital strategies.{% endblock %}">
+    <meta name="twitter:image" content="{% block twitter_image %}{{ url_for('static', filename='images/og-cover.jpg', _external=True) }}{% endblock %}">
+
+    <!-- Structured Data (JSON-LD) — LocalBusiness schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Bej Dizajn",
+      "url": "https://bejdizajn.al",
+      "logo": "https://bejdizajn.al/static/images/logo.png",
+      "image": "https://bejdizajn.al/static/images/og-cover.jpg",
+      "description": "Luxury web design, brand identity, and digital strategy agency based in Albania.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tiranë",
+        "addressCountry": "AL"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "info@bejdizajn.al",
+        "telephone": "+355686603606"
+      },
+      "sameAs": [
+        "https://www.instagram.com/bejdizajn",
+        "https://www.tiktok.com/@bejdizajn",
+        "https://www.facebook.com/bejdizajn"
+      ]
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="alternate" hreflang="en" href="https://bejdizajn.al{{ request.path }}">
+    <link rel="alternate" hreflang="sq" href="https://bejdizajn.al{{ request.path }}">
+    <link rel="alternate" hreflang="x-default" href="https://bejdizajn.al{{ request.path }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+</head>
+<body class="dark-mode">
+    <nav class="sticky-nav">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="{{ url_for('home') }}" class="logo">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Bej Dizajn" style="height: 50px; width: auto;">
+                </a>
+            </div>
+
+            <div class="nav-center">
+                <a href="{{ url_for('home') }}">{{ t.nav_home }}</a>
+                <a href="{{ url_for('services') }}">{{ t.nav_services }}</a>
+                <a href="{{ url_for('packages') }}">{{ t.nav_packages }}</a>
+                <a href="{{ url_for('about') }}">{{ t.nav_about }}</a>
+            </div>
+
+            <div class="nav-right">
+                <a href="{{ url_for('contact') }}" class="btn-primary">{{ t.nav_contact }}</a>
+                <div class="lang-switch">
+                    {% if current_lang == 'en' %}
+                        <a href="{{ url_for('switch_lang', lang='sq') }}">SQ</a>
+                    {% else %}
+                        <a href="{{ url_for('switch_lang', lang='en') }}">EN</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo-wrap">
+                <img src="{{ url_for('static', filename='images/footer-logo.png') }}" alt="Bej Dizajn" class="footer-logo">
+            </div>
+
+            <div class="footer-main-grid">
+                <div class="footer-contact">
+                    <a href="mailto:info@bejdizajn.al" class="footer-link">
+                        <i class="fas fa-envelope"></i> info@bejdizajn.al
+                    </a>
+                    <a href="https://wa.me/355686603606" class="footer-link">
+                        <i class="fab fa-whatsapp"></i> +355686603606
+                    </a>
+                </div>
+
+                <div class="footer-nav-grid">
+                    <a href="{{ url_for('services') }}">{{ t.nav_services }}</a>
+                    <a href="{{ url_for('packages') }}">{{ t.nav_packages }}</a>
+                    <a href="{{ url_for('about') }}">{{ t.nav_about }}</a>
+                    <a href="{{ url_for('contact') }}">{{ t.nav_contact }}</a>
+                </div>
+
+                <div class="footer-socials">
+                    <span class="follow-text">Follow Us</span>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/bejdizajn" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        
+                        <a href="https://www.tiktok.com/@bejdizajn" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        
+                        <a href="https://www.facebook.com/bejdizajn" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>© 2026 Bej Dizajn. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="scrollToTop" class="scroll-top-btn">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script defer src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>

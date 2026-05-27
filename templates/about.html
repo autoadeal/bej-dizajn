@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}About Us — Design & Development Duo | Bej Dizajn{% endblock %}
+{% block meta_description %}Meet the Bej Dizajn team — a design and development duo combining bold creativity with clean code to build standout digital brands in Albania.{% endblock %}
+{% block content %}
+
+<div class="about-header">
+    <div class="header-content">
+        <!-- Changed to a div to match contact page structure and avoid h1 default margins -->
+        <div class="page-indicator page-title-bodega">{{ t.about_header }}</div>
+    </div>
+    <div class="header-line"></div>
+</div>
+
+<section class="about-container reveal-up">
+    <p>{{t.about_subtitle}}</p>
+    <div class="about-grid">
+        <div class="about-card"><h3 class="bodega-title">{{t.about_creative}}</h3><p>{{t.creative_desc}}</p></div>
+        <div class="about-card"><h3 class="bodega-title">{{t.about_technical}}</h3><p>{{t.technical_desc}}</p></div>
+    </div>
+</section>
+
+<section class="process-section">
+    <!-- Removed the inline style margin-bottom: 4rem so it doesn't break mobile -->
+    <h2 class="page-indicator reveal-up bodega-title" style="text-align: center;">{{t.process_head}}</h2>
+    <div class="process-container">
+        <div class="process-card"><span class="step-pill">{{t.step1}}</span><div class="process-content"><h3 class="bodega-title">{{t.step1_title}}</h3><p>{{t.step1_desc}}</p></div></div>
+        <div class="process-card"><span class="step-pill">{{t.step2}}</span><div class="process-content"><h3 class="bodega-title">{{t.step2_title}}</h3><p>{{t.step2_desc}}</p></div></div>
+        <div class="process-card"><span class="step-pill">{{t.step3}}</span><div class="process-content"><h3 class="bodega-title">{{t.step3_title}}</h3><p>{{t.step3_desc}}</p></div></div>
+        <div class="process-card"><span class="step-pill">{{t.step4}}</span><div class="process-content"><h3 class="bodega-title">{{t.step4_title}}</h3><p>{{t.step4_desc}}</p></div></div>
+        <div class="process-card"><span class="step-pill">{{t.step5}}</span><div class="process-content"><h3 class="bodega-title">{{t.step5_title}}</h3><p>{{t.step5_desc}}</p></div></div>
+    </div>
+</section>
+
+{% endblock %}

@@ -4,8 +4,9 @@ from datetime import datetime
 import os
 from whitenoise import WhiteNoise
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 app.secret_key = os.environ.get('SECRET_KEY', 'fallback-dev-key')
+app.wsgi_app = WhiteNoise(app.wsgi_app, root=os.path.join(os.path.dirname(__file__), 'static'), prefix='static')
 
 @app.route('/sitemap.xml')
 def sitemap():
@@ -375,5 +376,4 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 if __name__ == '__main__': 
-    app.wsgi_app = WhiteNoise(app.wsgi_app, root='static/', prefix='static')
     app.run(debug=True, port=5000)

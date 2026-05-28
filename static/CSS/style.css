@@ -399,7 +399,6 @@ textarea.form-input { resize: none; height: 150px; }
  .form-button-wrapper { margin-top: 25px; }
  .btn-primary.btn-wide { width: 100%; padding: 0.8rem 2.2rem; border-radius: 50px; font-weight: 600; cursor: pointer; border: none; color: #fff; background: linear-gradient(135deg, #7f57f9 0%, #310d8a 100%); font-size: 18px; }
 }
-/* Custom font for specific page titles */
 
 .bodega-title { font-family: 'BodegaBold','Bodeg',  sans-serif; text-transform: none; letter-spacing: normal; }
 .header-content { font-family: 'BodegaBold', 'Bodeg', sans-serif; font-weight: 1000; text-transform: uppercase; }

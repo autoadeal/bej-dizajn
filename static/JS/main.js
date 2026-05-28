@@ -67,7 +67,6 @@ window.onload = () => {
                 gsap.set(track, { x: -loopDistance });
             }
         });
-        
         // PAUSE ON HOVER (Important for usability, only pause this specific animation)
         track.addEventListener('mouseenter', () => loopTween.pause());
         track.addEventListener('mouseleave', () => loopTween.play());
